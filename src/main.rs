@@ -20,9 +20,11 @@ pub extern "C" fn _start() -> ! { // !  because instaed of returning it should e
 
      os::init();
 
+    fn stack_overflow() {
+        stack_overflow();
+    }
 
-     // invoke a preakpoint exception
-     x86_64::instructions::interrupts::int3();
+    stack_overflow();
 
     #[cfg(test)]
     test_main();
